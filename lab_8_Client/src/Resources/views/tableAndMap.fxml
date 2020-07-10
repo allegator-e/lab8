@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="628.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar fx:id="hightMenu" prefHeight="25.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu fx:id="languageMenu" mnemonicParsing="false" text="Language">
+            <items>
+                  <RadioMenuItem fx:id="englishMenuItem" mnemonicParsing="false" selected="true" text="English">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Language" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="RussianMenuItem" mnemonicParsing="false" text="Русский" toggleGroup="$Language" />
+                  <RadioMenuItem fx:id="NorskMenuItem" mnemonicParsing="false" text="Norsk" toggleGroup="$Language" />
+                  <RadioMenuItem fx:id="MagyarMenuItem" mnemonicParsing="false" text="Magyar" toggleGroup="$Language" />
+                  <RadioMenuItem fx:id="EspanolMenuItem" mnemonicParsing="false" text="Espanol" toggleGroup="$Language" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Commands">
+               <items>
+                  <MenuItem fx:id="averageOfNumberOfRoomsItem" mnemonicParsing="false" text="AverageOfNumberOfRooms" />
+                  <MenuItem fx:id="groupByCreationDateItem" mnemonicParsing="false" text="GroupByCreationDate" />
+                  <MenuItem fx:id="countByTransportItem" mnemonicParsing="false" text="CountByTransport" />
+                  <MenuItem fx:id="insertItem" mnemonicParsing="false" text="Insert" />
+                  <MenuItem fx:id="updateItem" mnemonicParsing="false" text="Update" />
+                  <MenuItem fx:id="removeKeyItem" mnemonicParsing="false" text="RemoveKey" />
+                  <MenuItem fx:id="removeGreaterItem" mnemonicParsing="false" text="RemoveGreater" />
+                  <MenuItem fx:id="removeGreaterKeyItem" mnemonicParsing="false" text="RemoveGreaterKey" />
+                  <MenuItem fx:id="clearItem" mnemonicParsing="false" text="Clear" />
+                  <MenuItem fx:id="historyItem" mnemonicParsing="false" text="History" />
+                  <MenuItem fx:id="executeScriptItem" mnemonicParsing="false" text="ExecuteScript" />
+               </items>
+            </Menu>
+            <Menu fx:id="languageMenu1" mnemonicParsing="false" text="More">
+               <items>
+                  <MenuItem fx:id="helpItem" mnemonicParsing="false" text="Help" />
+                  <MenuItem fx:id="infoItem" mnemonicParsing="false" text="Info" />
+                  <MenuItem fx:id="chooseFileItem" mnemonicParsing="false" text="Choose file for script" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <Label fx:id="userName" alignment="BASELINE_RIGHT" contentDisplay="RIGHT" prefHeight="25.0" prefWidth="98.0" text="User: OLeg" AnchorPane.rightAnchor="11.0" />
+      <TabPane fx:id="choosePlane" layoutY="25.0" prefHeight="554.0" prefWidth="1421.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+        <tabs>
+          <Tab fx:id="tableTab" text="Table">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="1452.0">
+                     <children>
+                        <ScrollPane layoutX="15.0" layoutY="62.0" maxHeight="700.0" maxWidth="1544.0" prefHeight="440.0" prefWidth="1166.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="40.0">
+                           <content>
+                              <TableView fx:id="tableView" prefHeight="438.0" prefWidth="1164.0">
+                                <columns>
+                                  <TableColumn fx:id="keyColumn" prefWidth="70.0" text="Key" />
+                                  <TableColumn fx:id="idColumn" prefWidth="70.0" text="ID" />
+                                    <TableColumn fx:id="nameColumn" prefWidth="90.0" text="Name" />
+                                    <TableColumn fx:id="coordinatesColumn" prefWidth="75.0" text="Coordinates">
+                                       <columns>
+                                          <TableColumn prefWidth="40.0" text="x" fx:id="xColumn" />
+                                          <TableColumn fx:id="yColumn" prefWidth="40.0" text="y" />
+                                       </columns>
+                                    </TableColumn>
+                                    <TableColumn fx:id="dateColumn" prefWidth="90.0" text="CreationDate" />
+                                    <TableColumn fx:id="areaColumn" prefWidth="50.0" text="Area" />
+                                    <TableColumn fx:id="roomsColumn" prefWidth="110.0" text="NumberOfRooms" />
+                                    <TableColumn fx:id="furnitureColumn" prefWidth="60.0" text="Furniture" />
+                                    <TableColumn fx:id="viewColumn" prefWidth="70.0" text="View" />
+                                    <TableColumn fx:id="transportColumn" prefWidth="87.0" text="Transport" />
+                                    <TableColumn fx:id="homeColumn" prefWidth="369.0" resizable="false" text="Home">
+                                       <columns>
+                                          <TableColumn fx:id="houseNameColumn" prefWidth="85.0" text="Name" />
+                                          <TableColumn fx:id="ageColumn" prefWidth="50.0" text="Age" />
+                                          <TableColumn fx:id="floorsColumn" prefWidth="100.0" text="NumberOfFloors" />
+                                          <TableColumn fx:id="flatsColumn" prefWidth="150.0" text="NumberOfFlatsOnFloor" />
+                                       </columns>
+                                    </TableColumn>
+                                </columns>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <Button fx:id="filterButton" layoutX="1120.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" text="Filter" AnchorPane.leftAnchor="1120.0" AnchorPane.topAnchor="7.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="mapTab" text="Map">
+               <content>
+                  <HBox fx:id="mapBox" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="450.0" prefWidth="450.0">
+                           <children>
+                              <Pane fx:id="mapPane" prefHeight="450.0" prefWidth="450.0">
+                                 <children>
+                                    <Canvas fx:id="mapCanvas" height="450.0" width="450.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <VBox fx:id="informBox" alignment="CENTER" prefHeight="500.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Name:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="48.0" text="Coordinates:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="60.0" text="x:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="73.0" text="y:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="235.0" text="Area:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="248.0" text="Number of rooms:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="310.0" text="Furnish:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="323.0" text="View:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="335.0" text="Transport:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="348.0" text="House:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="360.0" text="name:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="373.0" text="year:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="385.0" text="number of floors:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="398.0" text="number of flats on floor:" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="informPlaceBox" alignment="CENTER_LEFT" prefHeight="571.0" prefWidth="170.0" spacing="5.0">
+                           <children>
+                              <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" text="Dom" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="48.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="60.0" text="11" textAlignment="CENTER" fx:id="xLabel">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="yLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="73.0" text="12" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="areaLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="235.0" text="32" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="roomsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="248.0" text="3" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="furnishLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="310.0" text="DESIGNER" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="viewLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="323.0" text="PARK" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="transportLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="335.0" text="NONE" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="348.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="houseNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="360.0" text="Izbushka" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="yearLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="373.0" text="12" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="floorsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="385.0" text="2" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="flatsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="398.0" text="3" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
